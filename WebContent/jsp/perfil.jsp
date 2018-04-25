@@ -1,11 +1,8 @@
-<?php
-@session_start();
-if(isset($_SESSION['idSesion'])) { ?>
+<%@page language="java"  contentType="text/html; charset=utf-8" pageEncoding="ISO-8859-1" %>
+ <%@include file="header.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-<!DOCTYPE html>
 <html>
-
-	<?php include 'header.php'; ?>
 	
 	<body>
     
@@ -25,7 +22,7 @@ if(isset($_SESSION['idSesion'])) { ?>
             <ul class="nav navbar-nav navbar-right">
 		      <li><a href="../../../sugpa/app/index.php?sugpa=IniciarSesion">Volver</a></li>
 		      <li><a href="../../../sugpa/app/index.php?sugpa=perfil"><span class="glyphicon glyphicon-user"></span> 
-		      	<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?> </a></li>
+		      </a></li>
       		  <li><a href="../../../sugpa/app/index.php?sesion=logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
             </ul>
           </div>
@@ -33,34 +30,14 @@ if(isset($_SESSION['idSesion'])) { ?>
       </div>
     </nav>
     <!-- FIN DE NAVEGACI�N PRINCIPAL -->
-        
-	   <!-- localhost/Sesion/views/init.php -->
     
     <!-- CONTENIDO -->
-    <?php if(isset( $_SESSION['mensaje'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['mensaje'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['mensaje'] ); }     
-    ?>
-    <?php if(isset( $_SESSION['mensajeError'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['mensajeError'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['mensajeError'] ); }     
-    ?>
+
+<!--
+
+ACA VAN LOS CARTELES DE OPERACION EXITOSA Y ERROR
+
+-->
     
     <main class="main-container no-padding-top" role="main">
       <section>
@@ -86,13 +63,13 @@ if(isset($_SESSION['idSesion'])) { ?>
                   <div class="panel-heading text-center"><b>Datos del usuario</b></div>
                   <div class="panel-body">
                       <div class="form-group">
-                        <p><strong>Apellido: </strong><?php echo $_SESSION['nombre']; ?></p>
+                        <p><strong>Apellido: </strong></p>
                       </div>
                       <div class="form-group">
-                      	<p><strong>Nombre: </strong><?php echo $_SESSION['apellido']; ?></p>
+                      	<p><strong>Nombre: </strong></p>
                       </div>
                       <div class="form-group">
-                      	<p><strong>Dni: </strong><?php echo $_SESSION['dni']; ?></p>
+                      	<p><strong>Dni: </strong></p>
                       </div>
                   </div>
                 </div>
@@ -107,7 +84,7 @@ if(isset($_SESSION['idSesion'])) { ?>
                     	<input type="hidden" name="profile" value="1">
                       <div class="form-group">
                         <label for="email">Email:</label>
-                        <input class="form-control" name="email" id="email" type="email" value="<?php echo $_SESSION['email']; ?>" autocomplete="off" required>
+                        <input class="form-control" name="email" id="email" type="email" value="" autocomplete="off" required>
                       </div>
                       <input type="submit" name="submitEmail" class="btn btn-primary pull-right" value="Cambiar">
                     </form>
@@ -125,13 +102,13 @@ if(isset($_SESSION['idSesion'])) { ?>
                 <div class="panel panel-default">
                   <div class="panel-heading text-center"><b>Cuenta</b></div>
                   <div class="panel-body">
-                  	<label for="tipo">Tipo de Usuario:</label> <?php echo $_SESSION['tipoLogin']; ?>
+                  	<label for="tipo">Tipo de Usuario:</label>
                   	<form action=" ../../../sugpa/app/index.php " method="POST" onsubmit="submitUseer.disabled=true; submitUseer.value='&nbsp&nbsp&nbsp&nbsp&nbsp;Enviando..&nbsp&nbsp&nbsp&nbsp&nbsp;'; return true;">
                   		<input type="hidden" name="sugpa" value="perfilUpdate">
                     	<input type="hidden" name="profile" value="2">
                       <div class="form-group">
                         <label for="useer">Nombre de Usuario:</label>
-                        <input class="form-control" minlength="5" name="useer" id="useer" type="text" value="<?php echo $_SESSION['useer']; ?>" autocomplete="off" required>
+                        <input class="form-control" minlength="5" name="useer" id="useer" type="text" value="" autocomplete="off" required>
                       </div>
                       <div class="form-group"> 
                       </div>
@@ -176,7 +153,7 @@ if(isset($_SESSION['idSesion'])) { ?>
      <!-- FIN CONTENIDO -->    
 
 
-    <?php include 'footer.php'; ?>
+    <%@include file="footer.jsp" %>	
     
     <script src="../../../sugpa/bastrap3/jquery.min.js"></script>
     <script src="../../../sugpa/bastrap3/bootstrap.min.js"></script>
@@ -184,8 +161,3 @@ if(isset($_SESSION['idSesion'])) { ?>
         
     </body>
 </html>
-
-<?php 
-}
-else { require_once 'iniciarSesion.php'; }
-?>

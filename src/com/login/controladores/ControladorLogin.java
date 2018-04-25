@@ -38,7 +38,7 @@ public class ControladorLogin extends HttpServlet {
 		
 		try {
 			String usuario= request.getParameter("usuario");
-			request.getRequestDispatcher("/jsp/404.jsp").forward(request, response);	
+			request.getRequestDispatcher("/jsp/bienvenido.jsp").forward(request, response);	
 
 			
 			

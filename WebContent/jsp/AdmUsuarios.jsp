@@ -1,13 +1,8 @@
-<?php
+<%@page language="java"  contentType="text/html; charset=utf-8" pageEncoding="ISO-8859-1" %>
+ <%@include file="header.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-@session_start();
-
-if(isset($_SESSION['idTipoLogin'])) {
-    if($_SESSION['idTipoLogin'] == 2) { ?>
-
-<!DOCTYPE html>
 <html>
-	<?php include 'header.php'; ?>
 
 <body>
 
@@ -28,7 +23,7 @@ if(isset($_SESSION['idTipoLogin'])) {
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="../../../sugpa/app/index.php?sugpa=AdmBienvenido">Volver</a></li>
 						<li><a href="../../../sugpa/app/index.php?sugpa=perfil"><span class="glyphicon glyphicon-user"></span>
-						<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?> </a></li>
+						</a></li>
 						<li><a href="../../../sugpa/app/index.php?sesion=logout"><span
 								class="glyphicon glyphicon-log-in"></span> Salir</a></li>
 					</ul>
@@ -39,54 +34,9 @@ if(isset($_SESSION['idTipoLogin'])) {
 	<!-- FIN DE NAVEGACIÓN PRINCIPAL -->
 	
 	<br>
-	<?php if(isset( $_SESSION['msjUsuario'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjUsuario'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjUsuario'] ); }     
-    ?>
-    <?php if(isset( $_SESSION['msjUseer'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjUseer'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjUseer'] ); }     
-    ?>
-    <?php if(isset( $_SESSION['msjUsuarioError'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjUsuarioError'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjUsuarioError'] ); }     
-    ?>
-    <?php if(isset( $_SESSION['msjUseerError'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjUseerError'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjUseerError'] ); }     
-    ?>
+<!-- 
+ACA VAN LOS MENSAJES DE TRANSACCION EXITOSA Y DE ERROR
+ -->
 
 <div class="modal js-loading-bar">
  <div class="modal-dialog">
@@ -189,7 +139,8 @@ if(isset($_SESSION['idTipoLogin'])) {
   		</div>
 	</div>
     <!-- FIN MODAL -->        
-    <?php include 'footer.php'; ?>
+
+	<%@include file="footer.jsp" %>
  
     <!-- JAVASCRIPT EXTRA -->
 	   <script src="../../../sugpa/bastrap3/assets/buenosaires.js"></script>
@@ -201,12 +152,3 @@ if(isset($_SESSION['idTipoLogin'])) {
 </body>
 
 </html>
-
-<?php 
-
-    }
-    else { require_once 'iniciarSesion.php'; }      
-}
-else { require_once 'iniciarSesion.php'; }
-
-?>

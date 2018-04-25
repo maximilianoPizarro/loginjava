@@ -1,22 +1,10 @@
-<?php 
-
-@session_start();
-
-if(isset($_SESSION['idTipoLogin'])) {
-    if($_SESSION['idTipoLogin'] == 1) { 
-    	unset($_SESSION['ingresoActual']);
-    	unset($_SESSION['extravariables']);
-    	unset($_SESSION['egresoActual']);
-    	unset($_SESSION['egresoDoc']);
-    	unset($_SESSION['extravariables']);
-?>
-
-<!DOCTYPE html>
+<%@page language="java"  contentType="text/html; charset=utf-8" pageEncoding="ISO-8859-1" %>
+ <%@include file="header.jsp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-	<?php include 'header.php'; ?>
 	
-	<link rel="stylesheet" href="../../../sugpa/bastrap3/abreviaciones.css">
+	<link rel="stylesheet" href="css/abreviaciones.css">
 	
 	<body>
     
@@ -36,7 +24,7 @@ if(isset($_SESSION['idTipoLogin'])) {
             <ul class="nav navbar-nav navbar-right">
 		      <li><a href="../../../sugpa/app/index.php?sugpa=IngresarVehiculo">Ingresar Veh&iacuteculo</a></li>
 		      <li><a href="../../../sugpa/app/index.php?sugpa=perfil"><span class="glyphicon glyphicon-user"></span> 
-		      	<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?> </a></li>
+		      	</a></li>
       		  <li><a href="../../../sugpa/app/index.php?sesion=logout"><span class="glyphicon glyphicon-log-in"></span> Salir</a></li>
             </ul>
           </div>
@@ -46,72 +34,7 @@ if(isset($_SESSION['idTipoLogin'])) {
     <!-- FIN DE NAVEGACION PRINCIPAL -->
     
     <!-- CONTENIDO <h3><strong>Bienvenido Agente !!!</strong></h3> <br/><br/> --> 
-        <?php if(isset( $_SESSION['mensajeIngreso'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['mensajeIngreso'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['mensajeIngreso'] ); }     ?>
-        <?php if(isset( $_SESSION['alertaIngreso'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-primary">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['alertaIngreso'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['alertaIngreso'] ); }     ?>
-        <?php if(isset( $_SESSION['mensajeEgreso'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['mensajeEgreso'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['mensajeEgreso'] ); }     ?>
-          <?php if(isset( $_SESSION['msjObservacion'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjObservacion'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjObservacion'] ); }     ?>  
-        <?php if(isset( $_SESSION['errorEgreso'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['errorEgreso'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['errorEgreso'] ); }     ?>
-		<?php if(isset( $_SESSION['errorIngreso'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['errorIngreso'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['errorIngreso'] ); }     ?>
+
 
 <div class="modal js-loading-bar">
  <div class="modal-dialog">
@@ -150,29 +73,6 @@ if(isset($_SESSION['idTipoLogin'])) {
 			  			<table class="table table-striped table-bordered nowrap cargando" cellspacing="0" width="100%" id="enplaya">    
 			    			<thead>
 			      				<tr>
-			      	 			<th></th>
-					 			<th>REGISTRO</th>	
-					 			<th>N&#176 INVENTARIO</th>				 			
-					 			<th>PLAYA</th>
-					 			<th>FECHA HORA</th>
-					 			<th>TIPO</th>
-					 			<th>TIPO DOMINIO</th>
-					 			<th>DOMINIO</th>
-					 			<th>MARCA</th>
-					 			<th>MODELO</th>
-					 			<th>COLOR</th>
-					 			<th>N&#176 MOTOR</th>
-					 			<th>N&#176 CHASIS</th>
-					 			<th>INTERNO</th>
-					 			<th>MOTIVO</th>
-					 			<th>GRUA</th>
-					 			<th>AGENTE LABRANTE</th>
-					 			<th>CHOFER GRUA</th>
-					 			<th>INFRACTOR/CONTRAVENTOR</th>					 			
-					 			<th>ACTA CONTRAVENCIONAL</th>				 			
-					 			<th>ACTA COMPROBACI&OacuteN</th>					 			
-					 			<th>BOLETA CITACI&OacuteN</th>
-					 			<th>LUGAR DE REMISI&OacuteN</th>
 			    			</thead>
 			  			</table>		
   						<br>
@@ -199,25 +99,16 @@ if(isset($_SESSION['idTipoLogin'])) {
 		    
     <!-- FIN CONTENIDO -->
         
-    <?php include 'footer.php'; ?>
+	<%@include file="footer.jsp" %>
  
     <!-- JAVASCRIPT EXTRA -->
-    <script src="../../../sugpa/bastrap3/assets/buenosaires.js"></script>  
-    <script src="../../../sugpa/bastrap3/js/jquery.min.js"></script>
-    <script src="../../../sugpa/bastrap3/js/jquery.dataTables.min.js"></script>
-    <script src="../../../sugpa/bastrap3/js/bootstrap.min.js"></script>
-    <script src="../../../sugpa/bastrap3/js/script.js"></script>
-    <script src="../../../sugpa/bastrap3/js/agente.js"></script>  
-    <script src="../../../sugpa/bastrap3/js/abreviaciones.js"></script>
+    <script src="bastrap3/assets/buenosaires.js"></script>  
+    <script src="bastrap3/js/jquery.min.js"></script>
+    <script src="bastrap3/js/jquery.dataTables.min.js"></script>
+    <script src="bastrap3/js/bootstrap.min.js"></script>
+    <script src="bastrap3/js/script.js"></script>
+    <script src="bastrap3/js/agente.js"></script>  
+    <script src="js/abreviaciones.js"></script>
         
     </body>   
 </html>
-
-<?php 
-
-    }
-    else { require_once 'iniciarSesion.php'; }      
-}
-else { require_once 'iniciarSesion.php'; }
-
-?>

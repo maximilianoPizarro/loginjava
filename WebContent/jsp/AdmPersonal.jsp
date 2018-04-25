@@ -22,7 +22,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="../../../sugpa/app/index.php?sugpa=AdmBienvenido">Volver</a></li>
 						<li><a href="../../../sugpa/app/index.php?sugpa=perfil"><span class="glyphicon glyphicon-user"></span>
-						<?php echo $_SESSION['nombre']." ".$_SESSION['apellido']; ?> </a></li>
+						</a></li>
 						<li><a href="../../../sugpa/app/index.php?sesion=logout"><span
 								class="glyphicon glyphicon-log-in"></span> Salir</a></li>
 					</ul>
@@ -31,44 +31,12 @@
 		</div>
 	</nav>
 	<!-- FIN DE NAVEGACIÓN PRINCIPAL -->
-    <?php if(isset( $_SESSION['msjPersonal'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-success">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjPersonal'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjPersonal'] ); }     
-    ?>
     
-    <?php if( isset( $_SESSION['msjPersonalError'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-danger">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjPersonalError'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjPersonalError'] ); }     
-    ?>    
+    <!-- 
+    ACA VAN LOS CARTELES DE TRANSACCION EXITOSA Y DE ERROR
+    
+     -->
 
-	<?php if( isset( $_SESSION['msjPersonalAlta'] )) { 
-        echo '<div class="container">
-                <div class="col-xs-12">
-                    <div class="alert-spot alert-spot-warning">
-                        <div class="alert-link-text">
-                            <h4>' . $_SESSION['msjPersonalAlta'] . '</h4>
-                        </div>
-                    </div>
-                </div>
-              </div>';
-        unset( $_SESSION['msjPersonalAlta'] ); }     
-    ?> 
 
 <div class="modal js-loading-bar">
  <div class="modal-dialog">
