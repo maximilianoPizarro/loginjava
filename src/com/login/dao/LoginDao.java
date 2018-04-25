@@ -28,11 +28,28 @@ public class LoginDao {
 		throw new HibernateException("ERROR en la capa de acceso a datos", he);
 	}
 	
+	public int agregar(Login objeto){
+		int id=0;
+		try{
+			iniciaOperacion();
+			id=Integer.parseInt(session.save(objeto).toString());
+			tx.commit();
+		}catch (HibernateException he){
+			manejaExcepcion(he);
+			throw he;
+		}finally{
+			session.close();
+		}
+		return id;
+	}
+	
+	
+	
 	public Login traerLogin(int idlogin) throws HibernateException {
 		Login objeto = null;
 		try {
 			iniciaOperacion();
-			String hql="from login where idlogin =:idlogin";
+			String hql="from Login where idlogin =:idlogin";
 			
 			objeto=(Login) session.createQuery(hql).setParameter("idlogin", (int)idlogin).uniqueResult();
 	

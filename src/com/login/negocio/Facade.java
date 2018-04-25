@@ -9,6 +9,10 @@ public class Facade {
 	public TiposABM getTiposABM() {
 		return new TiposABM();
 	}
+	
+	public UsuarioABM getUsuarioABM() {
+		return new UsuarioABM();
+	}
 
 //	public CuotaABM getCuotaABM() {
 //		return new CuotaABM();

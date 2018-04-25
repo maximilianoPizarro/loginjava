@@ -70,6 +70,12 @@ public class Usuario {
 	public void setLogin(Login login) {
 		this.login = login;
 	}
+
+	@Override
+	public String toString() {
+		return "Usuario [dni=" + dni + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", bajausuario=" + bajausuario + ", login=" + login + "]";
+	}
     
     
  

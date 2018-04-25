@@ -18,6 +18,14 @@ public class Login {
 		this.tipologin = tipologin;
 	}
 
+	public int getIdlogin() {
+		return idlogin;
+	}
+
+	protected void setIdlogin(int idlogin) {
+		this.idlogin = idlogin;
+	}
+
 	public String getUseer() {
 		return useer;
 	}
@@ -50,16 +58,13 @@ public class Login {
 		this.tipologin = tipologin;
 	}
 
-	public int getIdlogin() {
-		return idlogin;
-	}
-
 	@Override
 	public String toString() {
 		return "Login [useer=" + useer + ", pass=" + pass + ", superlogin=" + superlogin + ", tipologin=" + tipologin
 				+ "]";
-	};
+	}
 
+	
     
 	
 	

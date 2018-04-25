@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>loginjava</display-name>
-  <display-name>EmailSendingWebApp</display-name>
   <context-param>
     <param-name>host</param-name>
     <param-value>smtp.gmail.com</param-value>
@@ -27,47 +26,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-    <servlet-name>ControladorInicio</servlet-name>
-    <servlet-class>com.login.controladores.ControladorInicio</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ControladorSalir</servlet-name>
-    <servlet-class>com.login.controladores.ControladorSalir</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>ControladorIngresarVehiculo</servlet-name>
-    <servlet-class>com.login.controladores.ControladorIngresarVehiculo</servlet-class>
-  </servlet>
+  
   <servlet>
     <servlet-name>ControladorLogin</servlet-name>
     <servlet-class>com.login.controladores.ControladorLogin</servlet-class>
-  </servlet>
-  <servlet-mapping>
+  </servlet> 
+  
+   <servlet-mapping>	 
     <servlet-name>ControladorLogin</servlet-name>
     <url-pattern>/bienvenido</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ControladorInicio</servlet-name>
-    <url-pattern>/inicioo</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ControladorSalir</servlet-name>
-    <url-pattern>/inicio</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ControladorIngresarVehiculo</servlet-name>
-    <url-pattern>/ingresarVehiculo</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ControladorCargar</servlet-name>
-    <url-pattern>/cargar</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>ControladorEgreso</servlet-name>
-    <url-pattern>/egreso</url-pattern>
-  </servlet-mapping>
-  <welcome-file-list>
-    <welcome-file>EmailForm.jsp</welcome-file>
-  </welcome-file-list>
+   </servlet-mapping> 
+   
 </web-app>

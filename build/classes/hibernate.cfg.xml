@@ -13,7 +13,8 @@
 
 <!--Mapeo Entidades -->
 	<mapping resource="com/login/mapeos/Tipos.hbm.xml"/>
-
+	<mapping resource="com/login/mapeos/Login.hbm.xml"/>
+	<mapping resource="com/login/mapeos/Usuario.hbm.xml"/>
 
 
 <!--

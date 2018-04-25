@@ -3,10 +3,10 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-	<class name="com.login.modelo.Login" table="login">
-	
-		<id column="idlogin" name="idlogin">
-		<generator class="identity"/>
+	<class name="com.login.modelo.Login" table="login" schema="public">
+
+		<id name="idlogin" type="integer">
+			<column name="idlogin" />
 		</id>
 				
 		<property name="useer" type="string">
@@ -21,7 +21,6 @@
 		</property>
 		
 		<one-to-one name="tipologin"  class="com.login.modelo.Tipos"/>
-		
 	</class>
 	
 </hibernate-mapping>

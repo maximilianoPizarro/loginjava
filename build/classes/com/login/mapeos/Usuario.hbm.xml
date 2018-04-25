@@ -3,12 +3,12 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-	<class name="com.login.modelo.Usuario" table="usuario">
+	<class name="com.login.modelo.Usuario" table="usuario" schema="public">
 
-		<id column="idusuario" name="idusuario">
-		<generator class="identity"/>
+		<id name="idusuario" type="integer">
+			<column name="idusuario" />
 		</id>
-				
+						
 		<property name="dni" type="int">
 			<column name="dni" />
 		</property>
@@ -26,7 +26,8 @@
 		
 		<property name="bajausuario" type="boolean">
 			<column name="bajausuario" />
-		</property>
+		</property>	
+	<one-to-one name="login"  class="com.login.modelo.Login"/>
 	</class>
-	
+		
 </hibernate-mapping>
